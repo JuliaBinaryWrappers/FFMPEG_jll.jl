@@ -14,288 +14,83 @@ using Bzip2_jll
 using Zlib_jll
 using OpenSSL_jll
 using Opus_jll
-## Global variables
-PATH = ""
-LIBPATH = ""
-LIBPATH_env = "PATH"
-LIBPATH_default = ""
-
-# Relative path to `ffmpeg`
-const ffmpeg_splitpath = ["bin", "ffmpeg.exe"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-ffmpeg_path = ""
-
-# ffmpeg-specific global declaration
-function ffmpeg(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
-    global PATH, LIBPATH
-    env_mapping = Dict{String,String}()
-    if adjust_PATH
-        if !isempty(get(ENV, "PATH", ""))
-            env_mapping["PATH"] = string(PATH, ';', ENV["PATH"])
-        else
-            env_mapping["PATH"] = PATH
-        end
-    end
-    if adjust_LIBPATH
-        LIBPATH_base = get(ENV, LIBPATH_env, expanduser(LIBPATH_default))
-        if !isempty(LIBPATH_base)
-            env_mapping[LIBPATH_env] = string(LIBPATH, ';', LIBPATH_base)
-        else
-            env_mapping[LIBPATH_env] = LIBPATH
-        end
-    end
-    withenv(env_mapping...) do
-        f(ffmpeg_path)
-    end
-end
-
-
-# Relative path to `ffprobe`
-const ffprobe_splitpath = ["bin", "ffprobe.exe"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-ffprobe_path = ""
-
-# ffprobe-specific global declaration
-function ffprobe(f::Function; adjust_PATH::Bool = true, adjust_LIBPATH::Bool = true)
-    global PATH, LIBPATH
-    env_mapping = Dict{String,String}()
-    if adjust_PATH
-        if !isempty(get(ENV, "PATH", ""))
-            env_mapping["PATH"] = string(PATH, ';', ENV["PATH"])
-        else
-            env_mapping["PATH"] = PATH
-        end
-    end
-    if adjust_LIBPATH
-        LIBPATH_base = get(ENV, LIBPATH_env, expanduser(LIBPATH_default))
-        if !isempty(LIBPATH_base)
-            env_mapping[LIBPATH_env] = string(LIBPATH, ';', LIBPATH_base)
-        else
-            env_mapping[LIBPATH_env] = LIBPATH
-        end
-    end
-    withenv(env_mapping...) do
-        f(ffprobe_path)
-    end
-end
-
-
-# Relative path to `libavcodec`
-const libavcodec_splitpath = ["bin", "avcodec-58.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavcodec_path = ""
-
-# libavcodec-specific global declaration
-# This will be filled out by __init__()
-libavcodec_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavcodec = "avcodec-58.dll"
-
-
-# Relative path to `libavdevice`
-const libavdevice_splitpath = ["bin", "avdevice-58.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavdevice_path = ""
-
-# libavdevice-specific global declaration
-# This will be filled out by __init__()
-libavdevice_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavdevice = "avdevice-58.dll"
-
-
-# Relative path to `libavfilter`
-const libavfilter_splitpath = ["bin", "avfilter-7.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavfilter_path = ""
-
-# libavfilter-specific global declaration
-# This will be filled out by __init__()
-libavfilter_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavfilter = "avfilter-7.dll"
-
-
-# Relative path to `libavformat`
-const libavformat_splitpath = ["bin", "avformat-58.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavformat_path = ""
-
-# libavformat-specific global declaration
-# This will be filled out by __init__()
-libavformat_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavformat = "avformat-58.dll"
-
-
-# Relative path to `libavresample`
-const libavresample_splitpath = ["bin", "avresample-4.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavresample_path = ""
-
-# libavresample-specific global declaration
-# This will be filled out by __init__()
-libavresample_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavresample = "avresample-4.dll"
-
-
-# Relative path to `libavutil`
-const libavutil_splitpath = ["bin", "avutil-56.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libavutil_path = ""
-
-# libavutil-specific global declaration
-# This will be filled out by __init__()
-libavutil_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libavutil = "avutil-56.dll"
-
-
-# Relative path to `libpostproc`
-const libpostproc_splitpath = ["bin", "postproc-55.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libpostproc_path = ""
-
-# libpostproc-specific global declaration
-# This will be filled out by __init__()
-libpostproc_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libpostproc = "postproc-55.dll"
-
-
-# Relative path to `libswresample`
-const libswresample_splitpath = ["bin", "swresample-3.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libswresample_path = ""
-
-# libswresample-specific global declaration
-# This will be filled out by __init__()
-libswresample_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libswresample = "swresample-3.dll"
-
-
-# Relative path to `libswscale`
-const libswscale_splitpath = ["bin", "swscale-5.dll"]
-
-# This will be filled out by __init__() for all products, as it must be done at runtime
-libswscale_path = ""
-
-# libswscale-specific global declaration
-# This will be filled out by __init__()
-libswscale_handle = C_NULL
-
-# This must be `const` so that we can use it with `ccall()`
-const libswscale = "swscale-5.dll"
-
-
-"""
-Open all libraries
-"""
+JLLWrappers.@generate_wrapper_header("FFMPEG")
+JLLWrappers.@declare_executable_product(ffmpeg)
+JLLWrappers.@declare_executable_product(ffprobe)
+JLLWrappers.@declare_library_product(libavcodec, "avcodec-58.dll")
+JLLWrappers.@declare_library_product(libavdevice, "avdevice-58.dll")
+JLLWrappers.@declare_library_product(libavfilter, "avfilter-7.dll")
+JLLWrappers.@declare_library_product(libavformat, "avformat-58.dll")
+JLLWrappers.@declare_library_product(libavresample, "avresample-4.dll")
+JLLWrappers.@declare_library_product(libavutil, "avutil-56.dll")
+JLLWrappers.@declare_library_product(libpostproc, "postproc-55.dll")
+JLLWrappers.@declare_library_product(libswresample, "swresample-3.dll")
+JLLWrappers.@declare_library_product(libswscale, "swscale-5.dll")
 function __init__()
-    global artifact_dir = abspath(artifact"FFMPEG")
+    JLLWrappers.@generate_init_header(libass_jll, libfdk_aac_jll, FriBidi_jll, FreeType2_jll, LAME_jll, libvorbis_jll, Ogg_jll, x264_jll, x265_jll, Bzip2_jll, Zlib_jll, OpenSSL_jll, Opus_jll)
+    JLLWrappers.@init_executable_product(
+        ffmpeg,
+        "bin/ffmpeg.exe",
+    )
 
-    # Initialize PATH and LIBPATH environment variable listings
-    global PATH_list, LIBPATH_list
-    # From the list of our dependencies, generate a tuple of all the PATH and LIBPATH lists,
-    # then append them to our own.
-    foreach(p -> append!(PATH_list, p), (libass_jll.PATH_list, libfdk_aac_jll.PATH_list, FriBidi_jll.PATH_list, FreeType2_jll.PATH_list, LAME_jll.PATH_list, libvorbis_jll.PATH_list, Ogg_jll.PATH_list, x264_jll.PATH_list, x265_jll.PATH_list, Bzip2_jll.PATH_list, Zlib_jll.PATH_list, OpenSSL_jll.PATH_list, Opus_jll.PATH_list,))
-    foreach(p -> append!(LIBPATH_list, p), (libass_jll.LIBPATH_list, libfdk_aac_jll.LIBPATH_list, FriBidi_jll.LIBPATH_list, FreeType2_jll.LIBPATH_list, LAME_jll.LIBPATH_list, libvorbis_jll.LIBPATH_list, Ogg_jll.LIBPATH_list, x264_jll.LIBPATH_list, x265_jll.LIBPATH_list, Bzip2_jll.LIBPATH_list, Zlib_jll.LIBPATH_list, OpenSSL_jll.LIBPATH_list, Opus_jll.LIBPATH_list,))
+    JLLWrappers.@init_executable_product(
+        ffprobe,
+        "bin/ffprobe.exe",
+    )
 
-    global ffmpeg_path = normpath(joinpath(artifact_dir, ffmpeg_splitpath...))
+    JLLWrappers.@init_library_product(
+        libavcodec,
+        "bin/avcodec-58.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    push!(PATH_list, dirname(ffmpeg_path))
-    global ffprobe_path = normpath(joinpath(artifact_dir, ffprobe_splitpath...))
+    JLLWrappers.@init_library_product(
+        libavdevice,
+        "bin/avdevice-58.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    push!(PATH_list, dirname(ffprobe_path))
-    global libavcodec_path = normpath(joinpath(artifact_dir, libavcodec_splitpath...))
+    JLLWrappers.@init_library_product(
+        libavfilter,
+        "bin/avfilter-7.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavcodec_handle = dlopen(libavcodec_path)
-    push!(LIBPATH_list, dirname(libavcodec_path))
+    JLLWrappers.@init_library_product(
+        libavformat,
+        "bin/avformat-58.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    global libavdevice_path = normpath(joinpath(artifact_dir, libavdevice_splitpath...))
+    JLLWrappers.@init_library_product(
+        libavresample,
+        "bin/avresample-4.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavdevice_handle = dlopen(libavdevice_path)
-    push!(LIBPATH_list, dirname(libavdevice_path))
+    JLLWrappers.@init_library_product(
+        libavutil,
+        "bin/avutil-56.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    global libavfilter_path = normpath(joinpath(artifact_dir, libavfilter_splitpath...))
+    JLLWrappers.@init_library_product(
+        libpostproc,
+        "bin/postproc-55.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavfilter_handle = dlopen(libavfilter_path)
-    push!(LIBPATH_list, dirname(libavfilter_path))
+    JLLWrappers.@init_library_product(
+        libswresample,
+        "bin/swresample-3.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    global libavformat_path = normpath(joinpath(artifact_dir, libavformat_splitpath...))
+    JLLWrappers.@init_library_product(
+        libswscale,
+        "bin/swscale-5.dll",
+        RTLD_LAZY | RTLD_DEEPBIND,
+    )
 
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavformat_handle = dlopen(libavformat_path)
-    push!(LIBPATH_list, dirname(libavformat_path))
-
-    global libavresample_path = normpath(joinpath(artifact_dir, libavresample_splitpath...))
-
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavresample_handle = dlopen(libavresample_path)
-    push!(LIBPATH_list, dirname(libavresample_path))
-
-    global libavutil_path = normpath(joinpath(artifact_dir, libavutil_splitpath...))
-
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libavutil_handle = dlopen(libavutil_path)
-    push!(LIBPATH_list, dirname(libavutil_path))
-
-    global libpostproc_path = normpath(joinpath(artifact_dir, libpostproc_splitpath...))
-
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libpostproc_handle = dlopen(libpostproc_path)
-    push!(LIBPATH_list, dirname(libpostproc_path))
-
-    global libswresample_path = normpath(joinpath(artifact_dir, libswresample_splitpath...))
-
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libswresample_handle = dlopen(libswresample_path)
-    push!(LIBPATH_list, dirname(libswresample_path))
-
-    global libswscale_path = normpath(joinpath(artifact_dir, libswscale_splitpath...))
-
-    # Manually `dlopen()` this right now so that future invocations
-    # of `ccall` with its `SONAME` will find this path immediately.
-    global libswscale_handle = dlopen(libswscale_path)
-    push!(LIBPATH_list, dirname(libswscale_path))
-
-    # Filter out duplicate and empty entries in our PATH and LIBPATH entries
-    filter!(!isempty, unique!(PATH_list))
-    filter!(!isempty, unique!(LIBPATH_list))
-    global PATH = join(PATH_list, ';')
-    global LIBPATH = join(vcat(LIBPATH_list, [Sys.BINDIR, joinpath(Sys.BINDIR, Base.LIBDIR, "julia"), joinpath(Sys.BINDIR, Base.LIBDIR)]), ';')
-
-    
+    JLLWrappers.@generate_init_footer()
 end  # __init__()
-

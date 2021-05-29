@@ -1,6 +1,6 @@
 name = "FFMPEG_jll"
 uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
-version = "4.3.1+4"
+version = "4.4.0+0"
 
 [deps]
 LAME_jll = "c1c5ebd0-6772-5130-a774-d5fcae4a789d"
@@ -22,6 +22,9 @@ Artifacts = "56f22d72-fd6d-98f1-02f0-08ddc0907c33"
 OpenSSL_jll = "458c3c95-2e84-50aa-8efc-19380b2a3a95"
 
 [compat]
-JLLWrappers = "1.1.0"
-julia = "1.0"
-x264_jll = "=2020.7.14"
+JLLWrappers = "1.2.0"
+julia = "1.6"
+x265_jll = "~3.5"
+x264_jll = "~2021.05.05"
+Bzip2_jll = "1.0.8"
+libass_jll = "0.15.1"

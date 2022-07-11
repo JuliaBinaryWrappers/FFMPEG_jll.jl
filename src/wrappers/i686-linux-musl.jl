@@ -7,6 +7,7 @@ using FriBidi_jll
 using FreeType2_jll
 using LAME_jll
 using libvorbis_jll
+using libaom_jll
 using Ogg_jll
 using x264_jll
 using x265_jll
@@ -15,8 +16,6 @@ using Zlib_jll
 using OpenSSL_jll
 using Opus_jll
 JLLWrappers.@generate_wrapper_header("FFMPEG")
-JLLWrappers.@declare_executable_product(ffmpeg)
-JLLWrappers.@declare_executable_product(ffprobe)
 JLLWrappers.@declare_library_product(libavcodec, "libavcodec.so.58")
 JLLWrappers.@declare_library_product(libavdevice, "libavdevice.so.58")
 JLLWrappers.@declare_library_product(libavfilter, "libavfilter.so.7")
@@ -26,18 +25,10 @@ JLLWrappers.@declare_library_product(libavutil, "libavutil.so.56")
 JLLWrappers.@declare_library_product(libpostproc, "libpostproc.so.55")
 JLLWrappers.@declare_library_product(libswresample, "libswresample.so.3")
 JLLWrappers.@declare_library_product(libswscale, "libswscale.so.5")
+JLLWrappers.@declare_executable_product(ffmpeg)
+JLLWrappers.@declare_executable_product(ffprobe)
 function __init__()
-    JLLWrappers.@generate_init_header(libass_jll, libfdk_aac_jll, FriBidi_jll, FreeType2_jll, LAME_jll, libvorbis_jll, Ogg_jll, x264_jll, x265_jll, Bzip2_jll, Zlib_jll, OpenSSL_jll, Opus_jll)
-    JLLWrappers.@init_executable_product(
-        ffmpeg,
-        "bin/ffmpeg",
-    )
-
-    JLLWrappers.@init_executable_product(
-        ffprobe,
-        "bin/ffprobe",
-    )
-
+    JLLWrappers.@generate_init_header(libass_jll, libfdk_aac_jll, FriBidi_jll, FreeType2_jll, LAME_jll, libvorbis_jll, libaom_jll, Ogg_jll, x264_jll, x265_jll, Bzip2_jll, Zlib_jll, OpenSSL_jll, Opus_jll)
     JLLWrappers.@init_library_product(
         libavcodec,
         "lib/libavcodec.so",
@@ -90,6 +81,16 @@ function __init__()
         libswscale,
         "lib/libswscale.so",
         RTLD_LAZY | RTLD_DEEPBIND,
+    )
+
+    JLLWrappers.@init_executable_product(
+        ffmpeg,
+        "bin/ffmpeg",
+    )
+
+    JLLWrappers.@init_executable_product(
+        ffprobe,
+        "bin/ffprobe",
     )
 
     JLLWrappers.@generate_init_footer()

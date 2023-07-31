@@ -1,123 +1,123 @@
 [[FFMPEG]]
 arch = "aarch64"
-git-tree-sha1 = "bf37190b92ac2fc3dd5e7073ff7ec7bbfd10343f"
+git-tree-sha1 = "f96624eb65909778b938d720f2b6383994f217bd"
 os = "macos"
 
     [[FFMPEG.download]]
-    sha256 = "9b7df2a72b42932e69968234b61b80e5a7169e98e44c78ff2e7ff72b208a2f3f"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.aarch64-apple-darwin.tar.gz"
+    sha256 = "62d6d1494c21da7b9e234d82b5a8bcde99d377fa9faf8c0b2e63118f735a72d2"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.aarch64-apple-darwin.tar.gz"
 [[FFMPEG]]
 arch = "aarch64"
-git-tree-sha1 = "dda2fa984c26b1f2eba559f4b76b55d9a70dd009"
+git-tree-sha1 = "fd761337b15e1c14b09b5050d645a93f3850e659"
 libc = "glibc"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "5a9bf69a1fc9c73f23c1d8a9e0490d43ef6877dd1585f70a3e15242809e112c6"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.aarch64-linux-gnu.tar.gz"
+    sha256 = "a3a22c74a602425abf3aaeb4a84f60f709bed4fcf52a3060f6f97d17bd2f8ec2"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.aarch64-linux-gnu.tar.gz"
 [[FFMPEG]]
 arch = "aarch64"
-git-tree-sha1 = "14a65e1aa247f78d206909dba10dd25809759a59"
+git-tree-sha1 = "dcd82b338749267907ddb0c958d14e389790a674"
 libc = "musl"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "7657bd0660fba7d4eb63137d97dc5ebb0a053f9ef2a213e62c43fa18a8344dbd"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.aarch64-linux-musl.tar.gz"
+    sha256 = "6369a3402e698af9913e20cc5f76084b597a47c9774610ebd1e27d97266b3ac4"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.aarch64-linux-musl.tar.gz"
 [[FFMPEG]]
 arch = "armv7l"
 call_abi = "eabihf"
-git-tree-sha1 = "1cc056c09281970205d7ecb5cb5e9a50c145f4dd"
+git-tree-sha1 = "b5faae8de5d5715ad9b01f58b634f29d2d43001e"
 libc = "glibc"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "3f4bd93e644a66cc6fd8cd6bcf8778c5de9041017f907357472b083e159d0be0"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.armv7l-linux-gnueabihf.tar.gz"
+    sha256 = "1291594dc201ab033b864f13d605365103450a28915019e9615c121ce70b9b0d"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.armv7l-linux-gnueabihf.tar.gz"
 [[FFMPEG]]
 arch = "armv7l"
 call_abi = "eabihf"
-git-tree-sha1 = "ee84c1817243a4a2f8224b1e4e9f076002db9ad7"
+git-tree-sha1 = "f492745ce7af5706c3e8d671dc55bfb84e6ce31c"
 libc = "musl"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "c14babc3a2269eaf935801a5e1be5954351cdad0f918a50802a5e21f701750ea"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.armv7l-linux-musleabihf.tar.gz"
+    sha256 = "5671c373bee7f1eac5b54b0baca15e1e3f60ac276aa4dd4893b6c3367a730c85"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.armv7l-linux-musleabihf.tar.gz"
 [[FFMPEG]]
 arch = "i686"
-git-tree-sha1 = "cb8f0fa3d5636ee57f72d5c30d80cdb25415934a"
+git-tree-sha1 = "b928cc644c272bb2cedb33be4a67af3cd05ba9a9"
 libc = "glibc"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "52c1d019fca1635e6bb67855e30a66ceabcced9a0c8aae160db3523010fc3788"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.i686-linux-gnu.tar.gz"
+    sha256 = "83338e16b4df22e69808f6b432179b826a556fd0c4734882f0db18008ea83c95"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.i686-linux-gnu.tar.gz"
 [[FFMPEG]]
 arch = "i686"
-git-tree-sha1 = "a091ee1736792e3323b1bbc165c72e73fc8c279c"
+git-tree-sha1 = "68f6da098244fe71980420d044778c8f2710d342"
 libc = "musl"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "25e166b6ab7ea6eb10679ff0cd2472755892390c144f88a44808f007ad64595a"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.i686-linux-musl.tar.gz"
+    sha256 = "8fef42d6c4d7e3a8e5555cce6cf710267e274162c977c7778db1f6827102e7ce"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.i686-linux-musl.tar.gz"
 [[FFMPEG]]
 arch = "i686"
-git-tree-sha1 = "8ac7b26947766f3d5b9600daace7da1b55cc198d"
+git-tree-sha1 = "e14ae1459c6331757c420ab2c233738cc130a4cc"
 os = "windows"
 
     [[FFMPEG.download]]
-    sha256 = "ce95c2cf3d99512c9884a45391e7db59c710bf538ff23a1ea65da214556c8ad4"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.i686-w64-mingw32.tar.gz"
+    sha256 = "37b16dffa079c76567bf759f330528c453db14364cc69b48f6756aaf941dce50"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.i686-w64-mingw32.tar.gz"
 [[FFMPEG]]
 arch = "powerpc64le"
-git-tree-sha1 = "f1abf22c9d5334efafeba75a266cd605d6e1db25"
+git-tree-sha1 = "8b79e1954cc71ebac3a8eac6e957fde8f5191198"
 libc = "glibc"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "33d6ee41560613733877c847cb8bbe2e785ae9ee4fd69040cbfd2f879edfd657"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.powerpc64le-linux-gnu.tar.gz"
+    sha256 = "2f70d2a6734be45b97f7fb053602588cf5fdd45de79bc433302a56902baf06d7"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.powerpc64le-linux-gnu.tar.gz"
 [[FFMPEG]]
 arch = "x86_64"
-git-tree-sha1 = "1e28bb4254c27b51008f9e1839edee3406036044"
+git-tree-sha1 = "ff3aadfd4ca3ccb50156bf905841eb68157b2086"
 os = "macos"
 
     [[FFMPEG.download]]
-    sha256 = "5d664f6f6b0fa470c10fe3c2d48047e3d923e610c0d0338e7b409e3febb81712"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.x86_64-apple-darwin.tar.gz"
+    sha256 = "a86abae43b1d81325f9423817d92148fe2b49c0b55316f093ca9a58821a94ec0"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.x86_64-apple-darwin.tar.gz"
 [[FFMPEG]]
 arch = "x86_64"
-git-tree-sha1 = "b409c0eafb4254a980f9e730f6fbe56867890f6a"
+git-tree-sha1 = "b6ffa63e744b3f99762364eece21ec2560c1b4cc"
 libc = "glibc"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "a8a79f5237d093a8d07cb2a40cbd15c2cfb1310c6c3ae358eb825bb1ec92e0e2"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.x86_64-linux-gnu.tar.gz"
+    sha256 = "1719d9a5bf3aa210b929272507bd8fc833896b59660b83542e4b1e7795de5460"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.x86_64-linux-gnu.tar.gz"
 [[FFMPEG]]
 arch = "x86_64"
-git-tree-sha1 = "0414a470c71799e4130b135d87e83aea4d2482f2"
+git-tree-sha1 = "ccb53e27d1485658edd8f0b48031300108a7b621"
 libc = "musl"
 os = "linux"
 
     [[FFMPEG.download]]
-    sha256 = "d1bc92e61ec563c379573929b7da67aee54991f602366473d06986b5d2f89e9a"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.x86_64-linux-musl.tar.gz"
+    sha256 = "db2f6fcb08fb5c624865963f307953c08fdc3d3c441cfa410dffc39fbe197de0"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.x86_64-linux-musl.tar.gz"
 [[FFMPEG]]
 arch = "x86_64"
-git-tree-sha1 = "f66edc8d817138620279fb549582895bbd82c64d"
+git-tree-sha1 = "bc881f81ecdaee2f1ab1e47e21863f1701a815f5"
 os = "freebsd"
 
     [[FFMPEG.download]]
-    sha256 = "a3413e2e29045decea1e94933d659ceaed1b7b3309d72e4eaf604cf6489d1839"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.x86_64-unknown-freebsd.tar.gz"
+    sha256 = "d5e64e8d4b94434b692a471a78d86e971b73a8c60aebe6c0333e8c8f267e0f97"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.x86_64-unknown-freebsd.tar.gz"
 [[FFMPEG]]
 arch = "x86_64"
-git-tree-sha1 = "e2bc28a38e71d07d41a27f8d4b3132c5d1b5a22d"
+git-tree-sha1 = "5579ddd0c0cbe6e3c0be08dca0e1a496c8e0f9c9"
 os = "windows"
 
     [[FFMPEG.download]]
-    sha256 = "576fd9ff72740ad3ec2e1868849cb220bc4aeb0c04cc641a8bfd908b9b5c01df"
-    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.2+2/FFMPEG.v4.4.2.x86_64-w64-mingw32.tar.gz"
+    sha256 = "81e087f773faf8f50cd8ca4e1981f40243157fc1e058859a07a08f7caac8fe24"
+    url = "https://github.com/JuliaBinaryWrappers/FFMPEG_jll.jl/releases/download/FFMPEG-v4.4.4+0/FFMPEG.v4.4.4.x86_64-w64-mingw32.tar.gz"

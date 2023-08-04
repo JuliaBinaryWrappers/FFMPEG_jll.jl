@@ -1,6 +1,6 @@
 name = "FFMPEG_jll"
 uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
-version = "4.4.4+0"
+version = "4.4.4+1"
 
 [deps]
 LAME_jll = "c1c5ebd0-6772-5130-a774-d5fcae4a789d"
@@ -29,5 +29,6 @@ x265_jll = "~3.5"
 x264_jll = "~2021.05.05"
 Bzip2_jll = "1.0.8"
 libass_jll = "0.15.1"
+FreeType2_jll = "2.10.4"
 OpenSSL_jll = "3.0.9"
 PCRE2_jll = "10.35"

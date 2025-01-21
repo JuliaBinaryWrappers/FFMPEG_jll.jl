@@ -1,6 +1,6 @@
 name = "FFMPEG_jll"
 uuid = "b22a6f82-2f65-5046-a5b2-351ab43fb4e5"
-version = "6.1.2+0"
+version = "7.1.0+0"
 
 [deps]
 LAME_jll = "c1c5ebd0-6772-5130-a774-d5fcae4a789d"
@@ -24,14 +24,13 @@ PCRE2_jll = "efcefdf7-47ab-520b-bdef-62a2eaa19f15"
 
 [compat]
 Libdl = "< 0.0.1, 1"
-x264_jll = "10164.0.0"
-FreeType2_jll = "2.10.4"
-JLLWrappers = "1.2.0"
-x265_jll = "~3.6"
+x264_jll = "10164.0.1"
+FreeType2_jll = "2.13.3"
+JLLWrappers = "1.7.0"
+x265_jll = "~4.1"
 Bzip2_jll = "1.0.8"
-libass_jll = "0.15.1"
+libass_jll = "0.15.2"
 libfdk_aac_jll = "2.0.3"
 Artifacts = "< 0.0.1, 1"
 julia = "1.6"
-OpenSSL_jll = "3.0.9"
-PCRE2_jll = "10.35"
+OpenSSL_jll = "3.0.15"

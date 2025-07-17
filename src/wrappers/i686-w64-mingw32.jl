@@ -17,63 +17,63 @@ using OpenSSL_jll
 using Opus_jll
 using PCRE2_jll
 JLLWrappers.@generate_wrapper_header("FFMPEG")
-JLLWrappers.@declare_library_product(libavcodec, "avcodec-61.dll")
-JLLWrappers.@declare_library_product(libavdevice, "avdevice-61.dll")
-JLLWrappers.@declare_library_product(libavfilter, "avfilter-10.dll")
-JLLWrappers.@declare_library_product(libavformat, "avformat-61.dll")
-JLLWrappers.@declare_library_product(libavutil, "avutil-59.dll")
-JLLWrappers.@declare_library_product(libpostproc, "postproc-58.dll")
-JLLWrappers.@declare_library_product(libswresample, "swresample-5.dll")
-JLLWrappers.@declare_library_product(libswscale, "swscale-8.dll")
+JLLWrappers.@declare_library_product(libavcodec, "avcodec-60.dll")
+JLLWrappers.@declare_library_product(libavdevice, "avdevice-60.dll")
+JLLWrappers.@declare_library_product(libavfilter, "avfilter-9.dll")
+JLLWrappers.@declare_library_product(libavformat, "avformat-60.dll")
+JLLWrappers.@declare_library_product(libavutil, "avutil-58.dll")
+JLLWrappers.@declare_library_product(libpostproc, "postproc-57.dll")
+JLLWrappers.@declare_library_product(libswresample, "swresample-4.dll")
+JLLWrappers.@declare_library_product(libswscale, "swscale-7.dll")
 JLLWrappers.@declare_executable_product(ffmpeg)
 JLLWrappers.@declare_executable_product(ffprobe)
 function __init__()
     JLLWrappers.@generate_init_header(libass_jll, libfdk_aac_jll, FriBidi_jll, FreeType2_jll, LAME_jll, libvorbis_jll, libaom_jll, Ogg_jll, x264_jll, x265_jll, Bzip2_jll, Zlib_jll, OpenSSL_jll, Opus_jll, PCRE2_jll)
     JLLWrappers.@init_library_product(
         libavcodec,
-        "bin\\avcodec-61.dll",
+        "bin\\avcodec-60.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libavdevice,
-        "bin\\avdevice-61.dll",
+        "bin\\avdevice-60.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libavfilter,
-        "bin\\avfilter-10.dll",
+        "bin\\avfilter-9.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libavformat,
-        "bin\\avformat-61.dll",
+        "bin\\avformat-60.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libavutil,
-        "bin\\avutil-59.dll",
+        "bin\\avutil-58.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libpostproc,
-        "bin\\postproc-58.dll",
+        "bin\\postproc-57.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libswresample,
-        "bin\\swresample-5.dll",
+        "bin\\swresample-4.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
     JLLWrappers.@init_library_product(
         libswscale,
-        "bin\\swscale-8.dll",
+        "bin\\swscale-7.dll",
         RTLD_LAZY | RTLD_DEEPBIND,
     )
 
